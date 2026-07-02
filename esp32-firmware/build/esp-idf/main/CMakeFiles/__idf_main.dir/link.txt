@@ -1,0 +1,2 @@
+/home/ngoc-202414649/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-ar qc libmain.a CMakeFiles/__idf_main.dir/main.c.obj CMakeFiles/__idf_main.dir/sht3x_driver.c.obj CMakeFiles/__idf_main.dir/filter_lib.c.obj CMakeFiles/__idf_main.dir/wifi_mqtt.c.obj
+/home/ngoc-202414649/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32-elf-ranlib libmain.a

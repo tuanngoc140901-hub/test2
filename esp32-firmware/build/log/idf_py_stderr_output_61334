@@ -1,0 +1,4 @@
+/home/ngoc-202414649/data/vxl/E-nose/esp32-firmware/main/main.c: In function 'fan_control_task':
+/home/ngoc-202414649/data/vxl/E-nose/esp32-firmware/main/main.c:228:11: warning: unused variable 'local_temp' [-Wunused-variable]
+  228 |     float local_temp = 0.0f;
+      |           ^~~~~~~~~~

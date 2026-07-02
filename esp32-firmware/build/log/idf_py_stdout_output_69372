@@ -1,0 +1,834 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15532
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (29) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Jun 30 2026 18:04:16[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (33) boot: chip revision: v3.1[0m
+[0;32mI (37) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (42) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (51) boot: Enabling RNG early entropy source...[0m
+[0;32mI (56) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (67) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (75) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (82) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (90) boot: End of partition table[0m
+[0;32mI (94) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=29880h (170112) map[0m
+[0;32mI (161) esp_image: segment 1: paddr=000398a8 vaddr=3ff80000 size=00004h (     4) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=000398b4 vaddr=3ffb0000 size=03cd4h ( 15572) load[0m
+[0;32mI (172) esp_image: segment 3: paddr=0003d590 vaddr=40080000 size=02a88h ( 10888) load[0m
+[0;32mI (179) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=9f71ch (653084) map[0m
+[0;32mI (407) esp_image: segment 5: paddr=000df744 vaddr=40082a88 size=15288h ( 86664) load[0m
+[0;32mI (453) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (453) boot: Disabling RNG early entropy source...[0m
+[0;32mI (465) cpu_start: Multicore app[0m
+[0;32mI (474) cpu_start: Pro cpu start user code[0m
+[0;32mI (474) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (474) cpu_start: Application information:[0m
+[0;32mI (477) cpu_start: Project name:     e-nose-firmware[0m
+[0;32mI (482) cpu_start: App version:      04dfb9e-dirty[0m
+[0;32mI (488) cpu_start: Compile time:     Jun 30 2026 18:04:26[0m
+[0;32mI (494) cpu_start: ELF file SHA256:  fe027dc27...[0m
+[0;32mI (499) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (504) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (509) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (513) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (518) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (526) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (531) heap_init: At 3FFB8510 len 00027AF0 (158 KiB): DRAM[0m
+[0;32mI (538) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (544) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (550) heap_init: At 40097D10 len 000082F0 (32 KiB): IRAM[0m
+[0;32mI (558) spi_flash: detected chip: generic[0m
+[0;32mI (561) spi_flash: flash io: dio[0m
+[0;33mW (565) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (579) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (590) main_task: Started on CPU0[0m
+[0;32mI (600) main_task: Calling app_main()[0m
+[0;32mI (600) main: E-nose AI system starting[0m
+[0;31mE (600) task_wdt: esp_task_wdt_init(523): TWDT already initialized[0m
+[0;32mI (650) wifi:wifi driver task: 3ffc0734, prio:23, stack:6656, core=0[0m
+[0;32mI (670) wifi:wifi firmware version: cc1dd81[0m
+[0;32mI (670) wifi:wifi certification version: v7.0[0m
+[0;32mI (670) wifi:config NVS flash: enabled[0m
+[0;32mI (670) wifi:config nano formating: disabled[0m
+[0;32mI (670) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (670) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (680) wifi:Init management short buffer num: 32[0m
+[0;32mI (680) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (690) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (690) wifi:Init static rx buffer num: 10[0m
+[0;32mI (700) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (700) wifi_init: rx ba win: 6[0m
+[0;32mI (700) wifi_init: tcpip mbox: 32[0m
+[0;32mI (710) wifi_init: udp mbox: 6[0m
+[0;32mI (710) wifi_init: tcp mbox: 6[0m
+[0;32mI (710) wifi_init: tcp tx win: 5760[0m
+[0;32mI (720) wifi_init: tcp rx win: 5760[0m
+[0;32mI (720) wifi_init: tcp mss: 1440[0m
+[0;32mI (730) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (730) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (770) phy_init: phy_version 4791,2c4672b,Dec 20 2023,16:06:06[0m
+[0;32mI (860) wifi:mode : sta (b4:bf:e9:0e:8f:d4)[0m
+[0;32mI (860) wifi:enable tsf[0m
+[0;32mI (2190) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (2190) wifi:state: init -> auth (b0)[0m
+[0;32mI (3450) wifi:state: auth -> assoc (0)[0m
+[0;32mI (3460) wifi:state: assoc -> run (10)[0m
+[0;32mI (3570) wifi:connected with Pixel 8 Pro, aid = 1, channel 11, BW20, bssid = 4a:60:cb:b9:23:50[0m
+[0;32mI (3570) wifi:security: WPA3-SAE, phy: bgn, rssi: -51[0m
+[0;32mI (3580) wifi:pm start, type: 1[0m
+
+[0;32mI (3580) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3620) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (3620) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (4590) esp_netif_handlers: sta ip: 10.130.162.205, mask: 255.255.255.0, gw: 10.130.162.230[0m
+[0;32mI (4590) wifi_mqtt: WiFi got IP: 10.130.162.205[0m
+[0;32mI (4590) wifi_mqtt: MQTT started[0m
+[0;32mI (4600) wifi_mqtt: WiFi connected successfully[0m
+[0;32mI (4680) wifi:<ba-add>idx:0 (ifx:0, 4a:60:cb:b9:23:50), tid:0, ssn:2, winSize:64[0m
+[0;31mE (4680) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (4680) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (4690) mqtt_client: Error transport connect[0m
+[0;32mI (13600) main: Peltier ON (-273.1)[0m
+[0;32mI (13600) main: Fan DEBUG: duty=255[0m
+[0;32mI (13600) main_task: Returned from app_main()[0m
+[0;32mI (13620) main: Raw: T=30.6 H=62.7 G=0.00 -> Cal: T=30.6 H=62.7 G=0.00[0m
+[0;32mI (13800) main: Fan DEBUG: duty=255[0m
+[0;32mI (14000) main: Fan DEBUG: duty=255[0m
+[0;32mI (14200) main: Fan DEBUG: duty=255[0m
+[0;32mI (14400) main: Fan DEBUG: duty=255[0m
+[0;32mI (14600) main: Fan DEBUG: duty=255[0m
+[0;32mI (14620) main: Raw: T=30.6 H=62.7 G=0.00 -> Cal: T=30.6 H=62.7 G=0.00[0m
+[0;32mI (14800) main: Fan DEBUG: duty=255[0m
+[0;32mI (15000) main: Fan DEBUG: duty=255[0m
+[0;32mI (15200) main: Fan DEBUG: duty=255[0m
+[0;32mI (15400) main: Fan DEBUG: duty=255[0m
+[0;32mI (15600) main: Fan DEBUG: duty=255[0m
+[0;32mI (15620) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (15800) main: Fan DEBUG: duty=255[0m
+[0;32mI (16000) main: Fan DEBUG: duty=255[0m
+[0;32mI (16200) main: Fan DEBUG: duty=255[0m
+[0;32mI (16400) main: Fan DEBUG: duty=255[0m
+[0;32mI (16600) main: Fan DEBUG: duty=255[0m
+[0;32mI (16620) main: Raw: T=30.6 H=62.7 G=0.00 -> Cal: T=30.6 H=62.7 G=0.00[0m
+[0;32mI (16800) main: Fan DEBUG: duty=255[0m
+[0;32mI (17000) main: Fan DEBUG: duty=255[0m
+[0;32mI (17200) main: Fan DEBUG: duty=255[0m
+[0;32mI (17400) main: Fan DEBUG: duty=255[0m
+[0;32mI (17600) main: Fan DEBUG: duty=255[0m
+[0;32mI (17620) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (17800) main: Fan DEBUG: duty=255[0m
+[0;32mI (18000) main: Fan DEBUG: duty=255[0m
+[0;32mI (18200) main: Fan DEBUG: duty=255[0m
+[0;32mI (18400) main: Fan DEBUG: duty=255[0m
+[0;32mI (18600) main: Fan DEBUG: duty=255[0m
+[0;32mI (18620) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (18800) main: Fan DEBUG: duty=255[0m
+[0;32mI (19000) main: Fan DEBUG: duty=255[0m
+[0;32mI (19200) main: Fan DEBUG: duty=255[0m
+[0;32mI (19400) main: Fan DEBUG: duty=255[0m
+[0;32mI (19600) main: Fan DEBUG: duty=255[0m
+[0;32mI (19620) main: Raw: T=30.6 H=62.7 G=0.00 -> Cal: T=30.6 H=62.7 G=0.00[0m
+[0;31mE (19710) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (19710) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (19710) mqtt_client: Error transport connect[0m
+[0;32mI (19800) main: Fan DEBUG: duty=255[0m
+[0;32mI (20000) main: Fan DEBUG: duty=255[0m
+[0;32mI (20200) main: Fan DEBUG: duty=255[0m
+[0;32mI (20400) main: Fan DEBUG: duty=255[0m
+[0;32mI (20600) main: Fan DEBUG: duty=255[0m
+[0;32mI (20620) main: Raw: T=30.6 H=62.8 G=0.00 -> Cal: T=30.6 H=62.8 G=0.00[0m
+[0;32mI (20800) main: Fan DEBUG: duty=255[0m
+[0;32mI (21000) main: Fan DEBUG: duty=255[0m
+[0;32mI (21200) main: Fan DEBUG: duty=255[0m
+[0;32mI (21400) main: Fan DEBUG: duty=255[0m
+[0;32mI (21600) main: Fan DEBUG: duty=255[0m
+[0;32mI (21620) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (21800) main: Fan DEBUG: duty=255[0m
+[0;32mI (22000) main: Fan DEBUG: duty=255[0m
+[0;32mI (22200) main: Fan DEBUG: duty=255[0m
+[0;32mI (22400) main: Fan DEBUG: duty=255[0m
+[0;32mI (22600) main: Fan DEBUG: duty=255[0m
+[0;32mI (22620) main: Raw: T=30.6 H=63.1 G=0.00 -> Cal: T=30.6 H=63.1 G=0.00[0m
+[0;32mI (22800) main: Fan DEBUG: duty=255[0m
+[0;32mI (23000) main: Fan DEBUG: duty=255[0m
+[0;32mI (23200) main: Fan DEBUG: duty=255[0m
+[0;32mI (23400) main: Fan DEBUG: duty=255[0m
+[0;32mI (23600) main: Fan DEBUG: duty=255[0m
+[0;32mI (23620) main: Raw: T=30.6 H=63.3 G=0.00 -> Cal: T=30.6 H=63.3 G=0.00[0m
+[0;32mI (23800) main: Fan DEBUG: duty=255[0m
+[0;32mI (24000) main: Fan DEBUG: duty=255[0m
+[0;32mI (24200) main: Fan DEBUG: duty=255[0m
+[0;32mI (24400) main: Fan DEBUG: duty=255[0m
+[0;32mI (24600) main: Fan DEBUG: duty=255[0m
+[0;32mI (24620) main: Raw: T=30.6 H=63.5 G=0.00 -> Cal: T=30.6 H=63.5 G=0.00[0m
+[0;32mI (24800) main: Fan DEBUG: duty=255[0m
+[0;32mI (25000) main: Fan DEBUG: duty=255[0m
+[0;32mI (25200) main: Fan DEBUG: duty=255[0m
+[0;32mI (25400) main: Fan DEBUG: duty=255[0m
+[0;32mI (25600) main: Fan DEBUG: duty=255[0m
+[0;32mI (25620) main: Raw: T=30.6 H=63.6 G=0.00 -> Cal: T=30.6 H=63.6 G=0.00[0m
+[0;32mI (25800) main: Fan DEBUG: duty=255[0m
+[0;32mI (26000) main: Fan DEBUG: duty=255[0m
+[0;32mI (26200) main: Fan DEBUG: duty=255[0m
+[0;32mI (26400) main: Fan DEBUG: duty=255[0m
+[0;32mI (26600) main: Fan DEBUG: duty=255[0m
+[0;32mI (26620) main: Raw: T=30.6 H=63.7 G=0.00 -> Cal: T=30.6 H=63.7 G=0.00[0m
+[0;32mI (26800) main: Fan DEBUG: duty=255[0m
+[0;32mI (27000) main: Fan DEBUG: duty=255[0m
+[0;32mI (27200) main: Fan DEBUG: duty=255[0m
+[0;32mI (27400) main: Fan DEBUG: duty=255[0m
+[0;32mI (27600) main: Fan DEBUG: duty=255[0m
+[0;32mI (27620) main: Raw: T=30.6 H=63.7 G=0.00 -> Cal: T=30.6 H=63.7 G=0.00[0m
+[0;32mI (27800) main: Fan DEBUG: duty=255[0m
+[0;32mI (2110) wifi:state: auth -> assoc (0)[0m
+[0;32mI (2110) wifi:state: assoc -> run (10)[0m
+[0;32mI (2170) wifi:connected with Pixel 8 Pro, aid = 1, channel 11, BW20, bssid = 4a:60:cb:b9:23:50[0m
+[0;32mI (2170) wifi:security: WPA3-SAE, phy: bgn, rssi: -52[0m
+[0;32mI (2180) wifi:pm start, type: 1[0m
+
+[0;32mI (2180) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (2260) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (2260) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (3190) esp_netif_handlers: sta ip: 10.130.162.205, mask: 255.255.255.0, gw: 10.130.162.230[0m
+[0;32mI (3190) wifi_mqtt: WiFi got IP: 10.130.162.205[0m
+[0;32mI (3190) wifi_mqtt: MQTT started[0m
+[0;32mI (3200) wifi_mqtt: WiFi connected successfully[0m
+[0;32mI (3230) wifi:<ba-add>idx:0 (ifx:0, 4a:60:cb:b9:23:50), tid:0, ssn:2, winSize:64[0m
+[0;31mE (3230) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (3240) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (3240) mqtt_client: Error transport connect[0m
+[0;32mI (6260) wifi:<ba-add>idx:1 (ifx:0, 4a:60:cb:b9:23:50), tid:5, ssn:0, winSize:64[0m
+[0;32mI (7200) main: Peltier ON (-273.1)[0m
+[0;32mI (7200) main: Fan DEBUG: duty=255[0m
+[0;32mI (7200) main_task: Returned from app_main()[0m
+[0;32mI (7220) main: Raw: T=30.5 H=63.0 G=0.00 -> Cal: T=30.5 H=63.0 G=0.00[0m
+[0;32mI (7400) main: Fan DEBUG: duty=255[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7172
+load:0x40078000,len:15532
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (29) boot: ESP-IDF v5.2 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Jun 30 2026 18:04:16[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (33) boot: chip revision: v3.1[0m
+[0;32mI (37) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (42) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (46) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (51) boot: Enabling RNG early entropy source...[0m
+[0;32mI (56) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (67) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (75) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (82) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (90) boot: End of partition table[0m
+[0;32mI (94) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=29880h (170112) map[0m
+[0;32mI (161) esp_image: segment 1: paddr=000398a8 vaddr=3ff80000 size=00004h (     4) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=000398b4 vaddr=3ffb0000 size=03cd4h ( 15572) load[0m
+[0;32mI (172) esp_image: segment 3: paddr=0003d590 vaddr=40080000 size=02a88h ( 10888) load[0m
+[0;32mI (179) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=9f71ch (653084) map[0m
+[0;32mI (407) esp_image: segment 5: paddr=000df744 vaddr=40082a88 size=15288h ( 86664) load[0m
+[0;32mI (453) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (453) boot: Disabling RNG early entropy source...[0m
+[0;32mI (465) cpu_start: Multicore app[0m
+[0;32mI (474) cpu_start: Pro cpu start user code[0m
+[0;32mI (474) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (474) cpu_start: Application information:[0m
+[0;32mI (477) cpu_start: Project name:     e-nose-firmware[0m
+[0;32mI (482) cpu_start: App version:      04dfb9e-dirty[0m
+[0;32mI (488) cpu_start: Compile time:     Jun 30 2026 18:04:26[0m
+[0;32mI (494) cpu_start: ELF file SHA256:  fe027dc27...[0m
+[0;32mI (499) cpu_start: ESP-IDF:          v5.2[0m
+[0;32mI (504) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (509) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (513) cpu_start: Chip rev:         v3.1[0m
+[0;32mI (518) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (526) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (531) heap_init: At 3FFB8510 len 00027AF0 (158 KiB): DRAM[0m
+[0;32mI (538) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (544) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (550) heap_init: At 40097D10 len 000082F0 (32 KiB): IRAM[0m
+[0;32mI (558) spi_flash: detected chip: generic[0m
+[0;32mI (561) spi_flash: flash io: dio[0m
+[0;33mW (565) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (579) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (590) main_task: Started on CPU0[0m
+[0;32mI (600) main_task: Calling app_main()[0m
+[0;32mI (600) main: E-nose AI system starting[0m
+[0;31mE (600) task_wdt: esp_task_wdt_init(523): TWDT already initialized[0m
+[0;32mI (650) wifi:wifi driver task: 3ffc07b8, prio:23, stack:6656, core=0[0m
+[0;32mI (670) wifi:wifi firmware version: cc1dd81[0m
+[0;32mI (670) wifi:wifi certification version: v7.0[0m
+[0;32mI (670) wifi:config NVS flash: enabled[0m
+[0;32mI (670) wifi:config nano formating: disabled[0m
+[0;32mI (670) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (680) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (680) wifi:Init management short buffer num: 32[0m
+[0;32mI (680) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (690) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (690) wifi:Init static rx buffer num: 10[0m
+[0;32mI (700) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (700) wifi_init: rx ba win: 6[0m
+[0;32mI (700) wifi_init: tcpip mbox: 32[0m
+[0;32mI (710) wifi_init: udp mbox: 6[0m
+[0;32mI (710) wifi_init: tcp mbox: 6[0m
+[0;32mI (710) wifi_init: tcp tx win: 5760[0m
+[0;32mI (720) wifi_init: tcp rx win: 5760[0m
+[0;32mI (720) wifi_init: tcp mss: 1440[0m
+[0;32mI (730) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (730) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (740) phy_init: phy_version 4791,2c4672b,Dec 20 2023,16:06:06[0m
+[0;32mI (830) wifi:mode : sta (b4:bf:e9:0e:8f:d4)[0m
+[0;32mI (830) wifi:enable tsf[0m
+[0;32mI (850) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (850) wifi:state: init -> auth (b0)[0m
+[0;32mI (2120) wifi:state: auth -> assoc (0)[0m
+[0;32mI (2120) wifi:Association refused temporarily, comeback time 1464 (TUs)[0m
+[0;32mI (3620) wifi:state: assoc -> assoc (0)[0m
+[0;32mI (3630) wifi:state: assoc -> init (6c0)[0m
+[0;32mI (3630) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;33mW (3630) wifi_mqtt: WiFi disconnected, retrying...[0m
+[0;33mW (6050) wifi_mqtt: WiFi disconnected, retrying...[0m
+[0;32mI (6060) wifi:new:<11,0>, old:<11,0>, ap:<255,255>, sta:<11,0>, prof:1[0m
+[0;32mI (6060) wifi:state: init -> auth (b0)[0m
+[0;32mI (7330) wifi:state: auth -> assoc (0)[0m
+[0;32mI (7330) wifi:state: assoc -> run (10)[0m
+[0;32mI (7410) wifi:connected with Pixel 8 Pro, aid = 1, channel 11, BW20, bssid = 4a:60:cb:b9:23:50[0m
+[0;32mI (7410) wifi:security: WPA3-SAE, phy: bgn, rssi: -48[0m
+[0;32mI (7410) wifi:pm start, type: 1[0m
+
+[0;32mI (7410) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (7520) wifi:dp: 2, bi: 102400, li: 4, scale listen interval from 307200 us to 409600 us[0m
+[0;32mI (7520) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+[0;32mI (8420) esp_netif_handlers: sta ip: 10.130.162.205, mask: 255.255.255.0, gw: 10.130.162.230[0m
+[0;32mI (8420) wifi_mqtt: WiFi got IP: 10.130.162.205[0m
+[0;32mI (8420) wifi_mqtt: MQTT started[0m
+[0;32mI (8430) wifi_mqtt: WiFi connected successfully[0m
+[0;32mI (8660) wifi:<ba-add>idx:0 (ifx:0, 4a:60:cb:b9:23:50), tid:0, ssn:6, winSize:64[0m
+[0;31mE (8660) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (8660) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (8670) mqtt_client: Error transport connect[0m
+[0;32mI (17430) main: Peltier ON (-273.1)[0m
+[0;32mI (17430) main: Fan DEBUG: duty=255[0m
+[0;32mI (17430) main_task: Returned from app_main()[0m
+[0;32mI (17450) main: Raw: T=30.5 H=63.1 G=0.00 -> Cal: T=30.5 H=63.1 G=0.00[0m
+[0;32mI (17630) main: Fan DEBUG: duty=255[0m
+[0;32mI (17830) main: Fan DEBUG: duty=255[0m
+[0;32mI (18030) main: Fan DEBUG: duty=255[0m
+[0;32mI (18230) main: Fan DEBUG: duty=255[0m
+[0;32mI (18430) main: Fan DEBUG: duty=255[0m
+[0;32mI (18450) main: Raw: T=30.5 H=63.1 G=0.00 -> Cal: T=30.5 H=63.1 G=0.00[0m
+[0;32mI (18630) main: Fan DEBUG: duty=255[0m
+[0;32mI (18830) main: Fan DEBUG: duty=255[0m
+[0;32mI (19030) main: Fan DEBUG: duty=255[0m
+[0;32mI (19230) main: Fan DEBUG: duty=255[0m
+[0;32mI (19430) main: Fan DEBUG: duty=255[0m
+[0;32mI (19450) main: Raw: T=30.5 H=63.0 G=0.00 -> Cal: T=30.5 H=63.0 G=0.00[0m
+[0;32mI (19630) main: Fan DEBUG: duty=255[0m
+[0;32mI (19830) main: Fan DEBUG: duty=255[0m
+[0;32mI (20030) main: Fan DEBUG: duty=255[0m
+[0;32mI (20230) main: Fan DEBUG: duty=255[0m
+[0;32mI (20430) main: Fan DEBUG: duty=255[0m
+[0;32mI (20450) main: Raw: T=30.5 H=63.0 G=0.00 -> Cal: T=30.5 H=63.0 G=0.00[0m
+[0;32mI (20630) main: Fan DEBUG: duty=255[0m
+[0;32mI (20830) main: Fan DEBUG: duty=255[0m
+[0;32mI (21030) main: Fan DEBUG: duty=255[0m
+[0;32mI (21230) main: Fan DEBUG: duty=255[0m
+[0;32mI (21430) main: Fan DEBUG: duty=255[0m
+[0;32mI (21450) main: Raw: T=30.5 H=63.0 G=0.00 -> Cal: T=30.5 H=63.0 G=0.00[0m
+[0;32mI (21630) main: Fan DEBUG: duty=255[0m
+[0;32mI (21830) main: Fan DEBUG: duty=255[0m
+[0;32mI (22030) main: Fan DEBUG: duty=255[0m
+[0;32mI (22230) main: Fan DEBUG: duty=255[0m
+[0;32mI (22430) main: Fan DEBUG: duty=255[0m
+[0;32mI (22450) main: Raw: T=30.5 H=63.0 G=0.00 -> Cal: T=30.5 H=63.0 G=0.00[0m
+[0;32mI (22630) main: Fan DEBUG: duty=255[0m
+[0;32mI (22830) main: Fan DEBUG: duty=255[0m
+[0;32mI (23030) main: Fan DEBUG: duty=255[0m
+[0;32mI (23230) main: Fan DEBUG: duty=255[0m
+[0;32mI (23430) main: Fan DEBUG: duty=255[0m
+[0;32mI (23450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (23630) main: Fan DEBUG: duty=255[0m
+[0;31mE (23700) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (23700) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (23710) mqtt_client: Error transport connect[0m
+[0;32mI (23830) main: Fan DEBUG: duty=255[0m
+[0;32mI (24030) main: Fan DEBUG: duty=255[0m
+[0;32mI (24230) main: Fan DEBUG: duty=255[0m
+[0;32mI (24430) main: Fan DEBUG: duty=255[0m
+[0;32mI (24450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (24630) main: Fan DEBUG: duty=255[0m
+[0;32mI (24830) main: Fan DEBUG: duty=255[0m
+[0;32mI (25030) main: Fan DEBUG: duty=255[0m
+[0;32mI (25230) main: Fan DEBUG: duty=255[0m
+[0;32mI (25430) main: Fan DEBUG: duty=255[0m
+[0;32mI (25450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (25630) main: Fan DEBUG: duty=255[0m
+[0;32mI (25830) main: Fan DEBUG: duty=255[0m
+[0;32mI (26030) main: Fan DEBUG: duty=255[0m
+[0;32mI (26230) main: Fan DEBUG: duty=255[0m
+[0;32mI (26430) main: Fan DEBUG: duty=255[0m
+[0;32mI (26450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (26630) main: Fan DEBUG: duty=255[0m
+[0;32mI (26830) main: Fan DEBUG: duty=255[0m
+[0;32mI (27030) main: Fan DEBUG: duty=255[0m
+[0;32mI (27230) main: Fan DEBUG: duty=255[0m
+[0;32mI (27430) main: Fan DEBUG: duty=255[0m
+[0;32mI (27450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (27630) main: Fan DEBUG: duty=255[0m
+[0;32mI (27830) main: Fan DEBUG: duty=255[0m
+[0;32mI (28030) main: Fan DEBUG: duty=255[0m
+[0;32mI (28230) main: Fan DEBUG: duty=255[0m
+[0;32mI (28430) main: Fan DEBUG: duty=255[0m
+[0;32mI (28450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (28630) main: Fan DEBUG: duty=255[0m
+[0;32mI (28830) main: Fan DEBUG: duty=255[0m
+[0;32mI (29030) main: Fan DEBUG: duty=255[0m
+[0;32mI (29230) main: Fan DEBUG: duty=255[0m
+[0;32mI (29430) main: Fan DEBUG: duty=255[0m
+[0;32mI (29450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (29630) main: Fan DEBUG: duty=255[0m
+[0;32mI (29830) main: Fan DEBUG: duty=255[0m
+[0;32mI (30030) main: Fan DEBUG: duty=255[0m
+[0;32mI (30230) main: Fan DEBUG: duty=255[0m
+[0;32mI (30430) main: Fan DEBUG: duty=255[0m
+[0;32mI (30450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (30630) main: Fan DEBUG: duty=255[0m
+[0;32mI (30830) main: Fan DEBUG: duty=255[0m
+[0;32mI (31030) main: Fan DEBUG: duty=255[0m
+[0;32mI (31230) main: Fan DEBUG: duty=255[0m
+[0;32mI (31430) main: Fan DEBUG: duty=255[0m
+[0;32mI (31450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (31630) main: Fan DEBUG: duty=255[0m
+[0;32mI (31830) main: Fan DEBUG: duty=255[0m
+[0;32mI (32030) main: Fan DEBUG: duty=255[0m
+[0;32mI (32230) main: Fan DEBUG: duty=255[0m
+[0;32mI (32430) main: Fan DEBUG: duty=255[0m
+[0;32mI (32450) main: Raw: T=30.6 H=62.9 G=0.00 -> Cal: T=30.6 H=62.9 G=0.00[0m
+[0;32mI (32630) main: Fan DEBUG: duty=255[0m
+[0;32mI (32830) main: Fan DEBUG: duty=255[0m
+[0;32mI (33030) main: Fan DEBUG: duty=255[0m
+[0;32mI (33230) main: Fan DEBUG: duty=255[0m
+[0;32mI (33430) main: Fan DEBUG: duty=255[0m
+[0;32mI (33450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (33630) main: Fan DEBUG: duty=255[0m
+[0;32mI (33830) main: Fan DEBUG: duty=255[0m
+[0;32mI (34030) main: Fan DEBUG: duty=255[0m
+[0;32mI (34230) main: Fan DEBUG: duty=255[0m
+[0;32mI (34430) main: Fan DEBUG: duty=255[0m
+[0;32mI (34450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (34630) main: Fan DEBUG: duty=255[0m
+[0;32mI (34830) main: Fan DEBUG: duty=255[0m
+[0;32mI (35030) main: Fan DEBUG: duty=255[0m
+[0;32mI (35230) main: Fan DEBUG: duty=255[0m
+[0;32mI (35430) main: Fan DEBUG: duty=255[0m
+[0;32mI (35450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (35630) main: Fan DEBUG: duty=255[0m
+[0;32mI (35830) main: Fan DEBUG: duty=255[0m
+[0;32mI (36030) main: Fan DEBUG: duty=255[0m
+[0;32mI (36230) main: Fan DEBUG: duty=255[0m
+[0;32mI (36430) main: Fan DEBUG: duty=255[0m
+[0;32mI (36450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (36630) main: Fan DEBUG: duty=255[0m
+[0;32mI (36830) main: Fan DEBUG: duty=255[0m
+[0;32mI (37030) main: Fan DEBUG: duty=255[0m
+[0;32mI (37230) main: Fan DEBUG: duty=255[0m
+[0;32mI (37430) main: Fan DEBUG: duty=255[0m
+[0;32mI (37450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (37630) main: Fan DEBUG: duty=255[0m
+[0;32mI (37830) main: Fan DEBUG: duty=255[0m
+[0;32mI (38030) main: Fan DEBUG: duty=255[0m
+[0;32mI (38230) main: Fan DEBUG: duty=255[0m
+[0;32mI (38430) main: Fan DEBUG: duty=255[0m
+[0;32mI (38450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (38630) main: Fan DEBUG: duty=255[0m
+[0;32mI (38830) main: Fan DEBUG: duty=255[0m
+[0;32mI (39030) main: Fan DEBUG: duty=255[0m
+[0;32mI (39230) main: Fan DEBUG: duty=255[0m
+[0;32mI (39430) main: Fan DEBUG: duty=255[0m
+[0;32mI (39630) main: Fan DEBUG: duty=255[0m
+[0;32mI (39830) main: Fan DEBUG: duty=255[0m
+[0;31mE (39960) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (39960) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (39970) mqtt_client: Error transport connect[0m
+[0;32mI (39970) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (40030) main: Fan DEBUG: duty=255[0m
+[0;32mI (40230) main: Fan DEBUG: duty=255[0m
+[0;32mI (40430) main: Fan DEBUG: duty=255[0m
+[0;32mI (40450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (40630) main: Fan DEBUG: duty=255[0m
+[0;32mI (40830) main: Fan DEBUG: duty=255[0m
+[0;32mI (41030) main: Fan DEBUG: duty=255[0m
+[0;32mI (41230) main: Fan DEBUG: duty=255[0m
+[0;32mI (41430) main: Fan DEBUG: duty=255[0m
+[0;32mI (41450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (41630) main: Fan DEBUG: duty=255[0m
+[0;32mI (41830) main: Fan DEBUG: duty=255[0m
+[0;32mI (42030) main: Fan DEBUG: duty=255[0m
+[0;32mI (42230) main: Fan DEBUG: duty=255[0m
+[0;32mI (42430) main: Fan DEBUG: duty=255[0m
+[0;32mI (42450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (42630) main: Fan DEBUG: duty=255[0m
+[0;32mI (42830) main: Fan DEBUG: duty=255[0m
+[0;32mI (43030) main: Fan DEBUG: duty=255[0m
+[0;32mI (43230) main: Fan DEBUG: duty=255[0m
+[0;32mI (43430) main: Fan DEBUG: duty=255[0m
+[0;32mI (43450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (43630) main: Fan DEBUG: duty=255[0m
+[0;32mI (43830) main: Fan DEBUG: duty=255[0m
+[0;32mI (44030) main: Fan DEBUG: duty=255[0m
+[0;32mI (44230) main: Fan DEBUG: duty=255[0m
+[0;32mI (44430) main: Fan DEBUG: duty=255[0m
+[0;32mI (44450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (44630) main: Fan DEBUG: duty=255[0m
+[0;32mI (44830) main: Fan DEBUG: duty=255[0m
+[0;32mI (45030) main: Fan DEBUG: duty=255[0m
+[0;32mI (45230) main: Fan DEBUG: duty=255[0m
+[0;32mI (45430) main: Fan DEBUG: duty=255[0m
+[0;32mI (45450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (45630) main: Fan DEBUG: duty=255[0m
+[0;32mI (45830) main: Fan DEBUG: duty=255[0m
+[0;32mI (46030) main: Fan DEBUG: duty=255[0m
+[0;32mI (46230) main: Fan DEBUG: duty=255[0m
+[0;32mI (46430) main: Fan DEBUG: duty=255[0m
+[0;32mI (46450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (46630) main: Fan DEBUG: duty=255[0m
+[0;32mI (46830) main: Fan DEBUG: duty=255[0m
+[0;32mI (47030) main: Fan DEBUG: duty=255[0m
+[0;32mI (47230) main: Fan DEBUG: duty=255[0m
+[0;32mI (47430) main: Fan DEBUG: duty=255[0m
+[0;32mI (47450) main: Raw: T=30.5 H=62.9 G=0.00 -> Cal: T=30.5 H=62.9 G=0.00[0m
+[0;32mI (47630) main: Fan DEBUG: duty=255[0m
+[0;32mI (47830) main: Fan DEBUG: duty=255[0m
+[0;32mI (48030) main: Fan DEBUG: duty=255[0m
+[0;32mI (48230) main: Fan DEBUG: duty=255[0m
+[0;32mI (48430) main: Fan DEBUG: duty=255[0m
+[0;32mI (48450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (48630) main: Fan DEBUG: duty=255[0m
+[0;32mI (48830) main: Fan DEBUG: duty=255[0m
+[0;32mI (49030) main: Fan DEBUG: duty=255[0m
+[0;32mI (49230) main: Fan DEBUG: duty=255[0m
+[0;32mI (49430) main: Fan DEBUG: duty=255[0m
+[0;32mI (49450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (49630) main: Fan DEBUG: duty=255[0m
+[0;32mI (49830) main: Fan DEBUG: duty=255[0m
+[0;32mI (50030) main: Fan DEBUG: duty=255[0m
+[0;32mI (50230) main: Fan DEBUG: duty=255[0m
+[0;32mI (50430) main: Fan DEBUG: duty=255[0m
+[0;32mI (50450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (50630) main: Fan DEBUG: duty=255[0m
+[0;32mI (50830) main: Fan DEBUG: duty=255[0m
+[0;32mI (51030) main: Fan DEBUG: duty=255[0m
+[0;32mI (51230) main: Fan DEBUG: duty=255[0m
+[0;32mI (51430) main: Fan DEBUG: duty=255[0m
+[0;32mI (51450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (51630) main: Fan DEBUG: duty=255[0m
+[0;32mI (51830) main: Fan DEBUG: duty=255[0m
+[0;32mI (52030) main: Fan DEBUG: duty=255[0m
+[0;32mI (52230) main: Fan DEBUG: duty=255[0m
+[0;32mI (52430) main: Fan DEBUG: duty=255[0m
+[0;32mI (52450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (52630) main: Fan DEBUG: duty=255[0m
+[0;32mI (52830) main: Fan DEBUG: duty=255[0m
+[0;32mI (53030) main: Fan DEBUG: duty=255[0m
+[0;32mI (53230) main: Fan DEBUG: duty=255[0m
+[0;32mI (53430) main: Fan DEBUG: duty=255[0m
+[0;32mI (53450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (53630) main: Fan DEBUG: duty=255[0m
+[0;32mI (53830) main: Fan DEBUG: duty=255[0m
+[0;32mI (54030) main: Fan DEBUG: duty=255[0m
+[0;32mI (54230) main: Fan DEBUG: duty=255[0m
+[0;32mI (54430) main: Fan DEBUG: duty=255[0m
+[0;32mI (54450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (54630) main: Fan DEBUG: duty=255[0m
+[0;32mI (54830) main: Fan DEBUG: duty=255[0m
+[0;32mI (55030) main: Fan DEBUG: duty=255[0m
+[0;32mI (55230) main: Fan DEBUG: duty=255[0m
+[0;32mI (55430) main: Fan DEBUG: duty=255[0m
+[0;32mI (55630) main: Fan DEBUG: duty=255[0m
+[0;32mI (55830) main: Fan DEBUG: duty=255[0m
+[0;32mI (56030) main: Fan DEBUG: duty=255[0m
+[0;32mI (56230) main: Fan DEBUG: duty=255[0m
+[0;31mE (56270) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (56270) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (56270) mqtt_client: Error transport connect[0m
+[0;32mI (56280) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (56430) main: Fan DEBUG: duty=255[0m
+[0;32mI (56450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (56630) main: Fan DEBUG: duty=255[0m
+[0;32mI (56830) main: Fan DEBUG: duty=255[0m
+[0;32mI (57030) main: Fan DEBUG: duty=255[0m
+[0;32mI (57230) main: Fan DEBUG: duty=255[0m
+[0;32mI (57430) main: Fan DEBUG: duty=255[0m
+[0;32mI (57450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (57630) main: Fan DEBUG: duty=255[0m
+[0;32mI (57830) main: Fan DEBUG: duty=255[0m
+[0;32mI (58030) main: Fan DEBUG: duty=255[0m
+[0;32mI (58230) main: Fan DEBUG: duty=255[0m
+[0;32mI (58430) main: Fan DEBUG: duty=255[0m
+[0;32mI (58450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (58630) main: Fan DEBUG: duty=255[0m
+[0;32mI (58830) main: Fan DEBUG: duty=255[0m
+[0;32mI (59030) main: Fan DEBUG: duty=255[0m
+[0;32mI (59230) main: Fan DEBUG: duty=255[0m
+[0;32mI (59430) main: Fan DEBUG: duty=255[0m
+[0;32mI (59450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (59630) main: Fan DEBUG: duty=255[0m
+[0;32mI (59830) main: Fan DEBUG: duty=255[0m
+[0;32mI (60030) main: Fan DEBUG: duty=255[0m
+[0;32mI (60230) main: Fan DEBUG: duty=255[0m
+[0;32mI (60430) main: Fan DEBUG: duty=255[0m
+[0;32mI (60450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (60630) main: Fan DEBUG: duty=255[0m
+[0;32mI (60830) main: Fan DEBUG: duty=255[0m
+[0;32mI (61030) main: Fan DEBUG: duty=255[0m
+[0;32mI (61230) main: Fan DEBUG: duty=255[0m
+[0;32mI (61430) main: Fan DEBUG: duty=255[0m
+[0;32mI (61450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (61630) main: Fan DEBUG: duty=255[0m
+[0;32mI (61830) main: Fan DEBUG: duty=255[0m
+[0;32mI (62030) main: Fan DEBUG: duty=255[0m
+[0;32mI (62230) main: Fan DEBUG: duty=255[0m
+[0;32mI (62430) main: Fan DEBUG: duty=255[0m
+[0;32mI (62450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (62630) main: Fan DEBUG: duty=255[0m
+[0;32mI (62830) main: Fan DEBUG: duty=255[0m
+[0;32mI (63030) main: Fan DEBUG: duty=255[0m
+[0;32mI (63230) main: Fan DEBUG: duty=255[0m
+[0;32mI (63430) main: Fan DEBUG: duty=255[0m
+[0;32mI (63450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (63630) main: Fan DEBUG: duty=255[0m
+[0;32mI (63830) main: Fan DEBUG: duty=255[0m
+[0;32mI (64030) main: Fan DEBUG: duty=255[0m
+[0;32mI (64230) main: Fan DEBUG: duty=255[0m
+[0;32mI (64430) main: Fan DEBUG: duty=255[0m
+[0;32mI (64450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (64630) main: Fan DEBUG: duty=255[0m
+[0;32mI (64830) main: Fan DEBUG: duty=255[0m
+[0;32mI (65030) main: Fan DEBUG: duty=255[0m
+[0;32mI (65230) main: Fan DEBUG: duty=255[0m
+[0;32mI (65430) main: Fan DEBUG: duty=255[0m
+[0;32mI (65450) main: Raw: T=30.5 H=62.7 G=0.00 -> Cal: T=30.5 H=62.7 G=0.00[0m
+[0;32mI (65630) main: Fan DEBUG: duty=255[0m
+[0;32mI (65830) main: Fan DEBUG: duty=255[0m
+[0;32mI (66030) main: Fan DEBUG: duty=255[0m
+[0;32mI (66230) main: Fan DEBUG: duty=255[0m
+[0;32mI (66430) main: Fan DEBUG: duty=255[0m
+[0;32mI (66450) main: Raw: T=30.5 H=62.8 G=0.00 -> Cal: T=30.5 H=62.8 G=0.00[0m
+[0;32mI (66630) main: Fan DEBUG: duty=255[0m
+[0;32mI (66830) main: Fan DEBUG: duty=255[0m
+[0;32mI (67030) main: Fan DEBUG: duty=255[0m
+[0;32mI (67230) main: Fan DEBUG: duty=255[0m
+[0;32mI (67430) main: Fan DEBUG: duty=255[0m
+[0;32mI (67450) main: Raw: T=30.5 H=63.0 G=0.00 -> Cal: T=30.5 H=63.0 G=0.00[0m
+[0;32mI (67630) main: Fan DEBUG: duty=255[0m
+[0;32mI (67830) main: Fan DEBUG: duty=255[0m
+[0;32mI (68030) main: Fan DEBUG: duty=255[0m
+[0;32mI (68230) main: Fan DEBUG: duty=255[0m
+[0;32mI (68430) main: Fan DEBUG: duty=255[0m
+[0;32mI (68450) main: Raw: T=30.5 H=63.0 G=0.00 -> Cal: T=30.5 H=63.0 G=0.00[0m
+[0;32mI (68630) main: Fan DEBUG: duty=255[0m
+[0;32mI (68830) main: Fan DEBUG: duty=255[0m
+[0;32mI (69030) main: Fan DEBUG: duty=255[0m
+[0;32mI (69230) main: Fan DEBUG: duty=255[0m
+[0;32mI (69430) main: Fan DEBUG: duty=255[0m
+[0;32mI (69450) main: Raw: T=30.5 H=63.1 G=0.00 -> Cal: T=30.5 H=63.1 G=0.00[0m
+[0;32mI (69630) main: Fan DEBUG: duty=255[0m
+[0;32mI (69830) main: Fan DEBUG: duty=255[0m
+[0;32mI (70030) main: Fan DEBUG: duty=255[0m
+[0;32mI (70230) main: Fan DEBUG: duty=255[0m
+[0;32mI (70430) main: Fan DEBUG: duty=255[0m
+[0;32mI (70450) main: Raw: T=30.5 H=63.1 G=0.00 -> Cal: T=30.5 H=63.1 G=0.00[0m
+[0;32mI (70630) main: Fan DEBUG: duty=255[0m
+[0;32mI (70830) main: Fan DEBUG: duty=255[0m
+[0;32mI (71030) main: Fan DEBUG: duty=255[0m
+[0;32mI (71230) main: Fan DEBUG: duty=255[0m
+[0;31mE (71290) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (71290) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (71300) mqtt_client: Error transport connect[0m
+[0;32mI (71430) main: Fan DEBUG: duty=255[0m
+[0;32mI (71450) main: Raw: T=30.5 H=63.2 G=0.00 -> Cal: T=30.5 H=63.2 G=0.00[0m
+[0;32mI (71630) main: Fan DEBUG: duty=255[0m
+[0;32mI (71830) main: Fan DEBUG: duty=255[0m
+[0;32mI (72030) main: Fan DEBUG: duty=255[0m
+[0;32mI (72230) main: Fan DEBUG: duty=255[0m
+[0;32mI (72430) main: Fan DEBUG: duty=255[0m
+[0;32mI (72450) main: Raw: T=30.5 H=63.4 G=0.00 -> Cal: T=30.5 H=63.4 G=0.00[0m
+[0;32mI (72630) main: Fan DEBUG: duty=255[0m
+[0;32mI (72830) main: Fan DEBUG: duty=255[0m
+[0;32mI (73030) main: Fan DEBUG: duty=255[0m
+[0;32mI (73230) main: Fan DEBUG: duty=255[0m
+[0;32mI (73430) main: Fan DEBUG: duty=255[0m
+[0;32mI (73450) main: Raw: T=30.5 H=63.4 G=0.00 -> Cal: T=30.5 H=63.4 G=0.00[0m
+[0;32mI (73630) main: Fan DEBUG: duty=255[0m
+[0;32mI (73830) main: Fan DEBUG: duty=255[0m
+[0;32mI (74030) main: Fan DEBUG: duty=255[0m
+[0;32mI (74230) main: Fan DEBUG: duty=255[0m
+[0;32mI (74430) main: Fan DEBUG: duty=255[0m
+[0;32mI (74450) main: Raw: T=30.5 H=63.4 G=0.00 -> Cal: T=30.5 H=63.4 G=0.00[0m
+[0;32mI (74630) main: Fan DEBUG: duty=255[0m
+[0;32mI (74830) main: Fan DEBUG: duty=255[0m
+[0;32mI (75030) main: Fan DEBUG: duty=255[0m
+[0;32mI (75230) main: Fan DEBUG: duty=255[0m
+[0;32mI (75430) main: Fan DEBUG: duty=255[0m
+[0;32mI (75450) main: Raw: T=30.5 H=63.4 G=0.00 -> Cal: T=30.5 H=63.4 G=0.00[0m
+[0;32mI (75630) main: Fan DEBUG: duty=255[0m
+[0;32mI (75830) main: Fan DEBUG: duty=255[0m
+[0;32mI (76030) main: Fan DEBUG: duty=255[0m
+[0;32mI (76230) main: Fan DEBUG: duty=255[0m
+[0;32mI (76430) main: Fan DEBUG: duty=255[0m
+[0;32mI (76450) main: Raw: T=30.5 H=63.4 G=0.00 -> Cal: T=30.5 H=63.4 G=0.00[0m
+[0;32mI (76630) main: Fan DEBUG: duty=255[0m
+[0;32mI (76830) main: Fan DEBUG: duty=255[0m
+[0;32mI (77030) main: Fan DEBUG: duty=255[0m
+[0;32mI (77230) main: Fan DEBUG: duty=255[0m
+[0;32mI (77430) main: Fan DEBUG: duty=255[0m
+[0;32mI (77450) main: Raw: T=30.5 H=63.4 G=0.00 -> Cal: T=30.5 H=63.4 G=0.00[0m
+[0;32mI (77630) main: Fan DEBUG: duty=255[0m
+[0;32mI (77830) main: Fan DEBUG: duty=255[0m
+[0;32mI (78030) main: Fan DEBUG: duty=255[0m
+[0;32mI (78230) main: Fan DEBUG: duty=255[0m
+[0;32mI (78430) main: Fan DEBUG: duty=255[0m
+[0;32mI (78450) main: Raw: T=30.6 H=63.4 G=0.00 -> Cal: T=30.6 H=63.4 G=0.00[0m
+[0;32mI (78630) main: Fan DEBUG: duty=255[0m
+[0;32mI (78830) main: Fan DEBUG: duty=255[0m
+[0;32mI (79030) main: Fan DEBUG: duty=255[0m
+[0;32mI (79230) main: Fan DEBUG: duty=255[0m
+[0;32mI (79430) main: Fan DEBUG: duty=255[0m
+[0;32mI (79450) main: Raw: T=30.6 H=63.6 G=0.00 -> Cal: T=30.6 H=63.6 G=0.00[0m
+[0;32mI (79630) main: Fan DEBUG: duty=255[0m
+[0;32mI (79830) main: Fan DEBUG: duty=255[0m
+[0;32mI (80030) main: Fan DEBUG: duty=255[0m
+[0;32mI (80230) main: Fan DEBUG: duty=255[0m
+[0;32mI (80430) main: Fan DEBUG: duty=255[0m
+[0;32mI (80450) main: Raw: T=30.6 H=63.9 G=0.00 -> Cal: T=30.6 H=63.9 G=0.00[0m
+[0;32mI (80630) main: Fan DEBUG: duty=255[0m
+[0;32mI (80830) main: Fan DEBUG: duty=255[0m
+[0;32mI (81030) main: Fan DEBUG: duty=255[0m
+[0;32mI (81230) main: Fan DEBUG: duty=255[0m
+[0;32mI (81430) main: Fan DEBUG: duty=255[0m
+[0;32mI (81450) main: Raw: T=30.6 H=64.0 G=0.00 -> Cal: T=30.6 H=64.0 G=0.00[0m
+[0;32mI (81630) main: Fan DEBUG: duty=255[0m
+[0;32mI (81830) main: Fan DEBUG: duty=255[0m
+[0;32mI (82030) main: Fan DEBUG: duty=255[0m
+[0;32mI (82230) main: Fan DEBUG: duty=255[0m
+[0;32mI (82430) main: Fan DEBUG: duty=255[0m
+[0;32mI (82450) main: Raw: T=30.6 H=64.1 G=0.00 -> Cal: T=30.6 H=64.1 G=0.00[0m
+[0;32mI (82630) main: Fan DEBUG: duty=255[0m
+[0;32mI (82830) main: Fan DEBUG: duty=255[0m
+[0;32mI (83030) main: Fan DEBUG: duty=255[0m
+[0;32mI (83230) main: Fan DEBUG: duty=255[0m
+[0;32mI (83430) main: Fan DEBUG: duty=255[0m
+[0;32mI (83450) main: Raw: T=30.6 H=64.1 G=0.00 -> Cal: T=30.6 H=64.1 G=0.00[0m
+[0;32mI (83630) main: Fan DEBUG: duty=255[0m
+[0;32mI (83830) main: Fan DEBUG: duty=255[0m
+[0;32mI (84030) main: Fan DEBUG: duty=255[0m
+[0;32mI (84230) main: Fan DEBUG: duty=255[0m
+[0;32mI (84430) main: Fan DEBUG: duty=255[0m
+[0;32mI (84450) main: Raw: T=30.6 H=64.1 G=0.00 -> Cal: T=30.6 H=64.1 G=0.00[0m
+[0;32mI (84630) main: Fan DEBUG: duty=255[0m
+[0;32mI (84830) main: Fan DEBUG: duty=255[0m
+[0;32mI (85030) main: Fan DEBUG: duty=255[0m
+[0;32mI (85230) main: Fan DEBUG: duty=255[0m
+[0;32mI (85430) main: Fan DEBUG: duty=255[0m
+[0;32mI (85450) main: Raw: T=30.6 H=64.1 G=0.00 -> Cal: T=30.6 H=64.1 G=0.00[0m
+[0;32mI (85630) main: Fan DEBUG: duty=255[0m
+[0;32mI (85830) main: Fan DEBUG: duty=255[0m
+[0;32mI (86030) main: Fan DEBUG: duty=255[0m
+[0;32mI (86230) main: Fan DEBUG: duty=255[0m
+[0;31mE (86310) esp-tls: [sock=54] delayed connect error: Connection reset by peer[0m
+[0;31mE (86310) transport_base: Failed to open a new connection: 32772[0m
+[0;31mE (86310) mqtt_client: Error transport connect[0m
+[0;32mI (86430) main: Fan DEBUG: duty=255[0m
+[0;32mI (86450) main: Raw: T=30.6 H=64.0 G=0.00 -> Cal: T=30.6 H=64.0 G=0.00[0m
+[0;32mI (86630) main: Fan DEBUG: duty=255[0m
+[0;32mI (86830) main: Fan DEBUG: duty=255[0m
+[0;32mI (87030) main: Fan DEBUG: duty=255[0m
+[0;32mI (87230) main: Fan DEBUG: duty=255[0m
+[0;32mI (87430) main: Fan DEBUG: duty=255[0m
+[0;32mI (87450) main: Raw: T=30.6 H=63.9 G=0.00 -> Cal: T=30.6 H=63.9 G=0.00[0m
+[0;32mI (87630) main: Fan DEBUG: duty=255[0m
+[0;32mI (87830) main: Fan DEBUG: duty=255[0m
+[0;32mI (88030) main: Fan DEBUG: duty=255[0m
+[0;32mI (88230) main: Fan DEBUG: duty=255[0m
+[0;32mI (88430) main: Fan DEBUG: duty=255[0m
+[0;32mI (88450) main: Raw: T=30.6 H=63.8 G=0.00 -> Cal: T=30.6 H=63.8 G=0.00[0m
+[0;32mI (88630) main: Fan DEBUG: duty=255[0m
+[0;32mI (88830) main: Fan DEBUG: duty=255[0m
+[0;32mI (89030) main: Fan DEBUG: duty=255[0m
+[0;32mI (89230) main: Fan DEBUG: duty=255[0m
+[0;32mI (89430) main: Fan DEBUG: duty=255[0m
+[0;32mI (89450) main: Raw: T=30.6 H=63.7 G=0.00 -> Cal: T=30.6 H=63.7 G=0.00[0m
+[0;32mI (89630) main: Fan DEBUG: duty=255[0m
+[0;32mI (89830) main: Fan DEBUG: duty=255[0m
+[0;32mI (90030) main: Fan DEBUG: duty=255[0m
+[0;32mI (90230) main: Fan DEBUG: duty=255[0m
+[0;32mI (90430) main: Fan DEBUG: duty=255[0m
+[0;32mI (90450) main: Raw: T=30.6 H=63.6 G=0.00 -> Cal: T=30.6 H=63.6 G=0.00[0m
+[0;32mI (90630) main: Fan DEBUG: duty=255[0m
+[0;32mI (90830) main: Fan DEBUG: duty=255[0m
+[0;32mI (91030) main: Fan DEBUG: duty=255[0m
+[0;32mI (91230) main: Fan DEBUG: duty=255[0m
+[0;32mI (91430) main: Fan DEBUG: duty=255[0m
+[0;32mI (91450) main: Raw: T=30.6 H=63.5 G=0.00 -> Cal: T=30.6 H=63.5 G=0.00[0m
+[0;32mI (91630) main: Fan DEBUG: duty=255[0m
+[0;32mI (91830) main: Fan DEBUG: duty=255[0m
+[0;32mI (92030) main: Fan DEBUG: duty=255[0m
+[0;32mI (92230) main: Fan DEBUG: duty=255[0m
+[0;32mI (92430) main: Fan DEBUG: duty=255[0m
+[0;32mI (92450) main: Raw: T=30.6 H=63.4 G=0.00 -> Cal: T=30.6 H=63.4 G=0.00[0m
+[0;32mI (92630) main: Fan DEBUG: duty=255[0m
+[0;32mI (92830) main: Fan DEBUG: duty=255[0m
+[0;32mI (93030) main: Fan DEBUG: duty=255[0m
+[0;32mI (93230) main: Fan DEBUG: duty=255[0m
+[0;32mI (93430) main: Fan DEBUG: duty=255[0m
+[0;32mI (93450) main: Raw: T=30.6 H=63.4 G=0.00 -> Cal: T=30.6 H=63.4 G=0.00[0m
+[0;32mI (93630) main: Fan DEBUG: duty=255[0m
+[0;32mI (93830) main: Fan DEBUG: duty=255[0m
+[0;32mI (94030) main: Fan DEBUG: duty=255[0m
+[0;32mI (94230) main: Fan DEBUG: duty=255[0m
+[0;32mI (94430) main: Fan DEBUG: duty=255[0m
+[0;32mI (94450) main: Raw: T=30.6 H=63.4 G=0.00 -> Cal: T=30.6 H=63.4 G=0.00[0m
+[0;32mI (94630) main: Fan DEBUG: duty=255[0m
+[0;32mI (94830) main: Fan DEBUG: duty=255[0m
+[0;32mI (95030) main: Fan DEBUG: duty=255[0m
+[0;32mI (95230) main: Fan DEBUG: duty=255[0m
+[0;32mI (95430) main: Fan DEBUG: duty=255[0m
+[0;32mI (95450) main: Raw: T=30.6 H=63.4 G=0.00 -> Cal: T=30.6 H=63.4 G=0.00[0m
+[0;32mI (95630) main: Fan DEBUG: duty=255[0m
+[0;32mI (95830) main: Fan DEBUG: duty=255[0m
+[0;32mI (96030) main: Fan DEBUG: duty=255[0m
+[0;32mI (96230) main: Fan DEBUG: duty=255[0m
+[0;32mI (96430) main: Fan DEBUG: duty=255[0m
+[0;32mI (96450) main: Raw: T=30.6 H=63.5 G=0.00 -> Cal: T=30.6 H=63.5 G=0.00[0m
+[0;32mI (96630) main: Fan DEBUG: duty=255[0m
+[0;32mI (96830) main: Fan DEBUG: duty=255[0m
+[0;32mI (97030) main: Fan DEBUG: duty=255[0m
+[0;32mI (97230) main: Fan DEBUG: duty=255[0m
+[0;32mI (97430) main: Fan DEBUG: duty=255[0m
+[0;32mI (97450) main: Raw: T=30.6 H=63.5 G=0.00 -> Cal: T=30.6 H=63.5 G=0.00[0m
+[0;32mI (97630) main: Fan DEBUG: duty=255[0m
+[0;32mI (97830) main: Fan DEBUG: duty=255[0m
+[0;32mI (98030) main: Fan DEBUG: duty=255[0m
+[0;32mI (98230) main: Fan DEBUG: duty=255[0m
+[0;32mI (98430) main: Fan DEBUG: duty=255[0m
+[0;32mI (98450) main: Raw: T=30.6 H=63.6 G=0.00 -> Cal: T=30.6 H=63.6 G=0.00[0m
+[0;32mI (98630) main: Fan DEBUG: duty=255[0m
