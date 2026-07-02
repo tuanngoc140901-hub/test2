@@ -17,7 +17,6 @@ static const char *TAG = "main";
 // ==================== Bộ lọc trung vị ====================
 static median_filter_t temp_filter;
 static median_filter_t humid_filter;
-
 // ==================== ADC oneshot ====================
 static adc_oneshot_unit_handle_t adc1_handle;
 #define NTC_ADC_CHANNEL   ADC_CHANNEL_7   // GPIO35
@@ -31,7 +30,7 @@ static adc_oneshot_unit_handle_t adc1_handle;
 static bool sensor_powered = true;
 
 // ==================== Peltier (MOSFET FR120N trên D18) ====================
-#define PELTIER_PWR_GPIO   GPIO_NUM_18   // HIGH = bật Peltier
+#define PELTIER_PWR_GPIO   GPIO_NUM_18   // HIGH = bật Peltier (cấp nguồn cho FR120N)
 
 // Ngưỡng nhiệt độ (đo từ NTC)
 #define TEMP_LOW_THRESHOLD   20.0f   // < 20°C -> bật sưởi
@@ -115,6 +114,7 @@ static int read_adc_raw(adc_channel_t channel) {
     return raw;
 }
 
+
 static float read_ntc_temp(void) {
     int raw = read_adc_raw(NTC_ADC_CHANNEL);
     float voltage = raw * 3.3f / 4095.0f;
@@ -127,7 +127,7 @@ static float read_ntc_temp(void) {
     return 1.0f / steinhart - 273.15f;
 }
 
-// ==================== Hàm điều khiển Peltier ====================
+// ==================== Hàm điều khiển Peltier (gọi định kỳ) ====================
 static void update_peltier(void) {
     float temp = read_ntc_temp();
     bool should_on = false;
@@ -156,17 +156,21 @@ static void update_peltier(void) {
         } else {
             should_on = false;
         }
-    } else { // "off"
+    } else { // Chế độ "off"
         should_on = false;
     }
 
-    if (should_on != peltier_on) {
-        peltier_on = should_on;
-        gpio_set_level(PELTIER_PWR_GPIO, peltier_on ? 1 : 0);
-        ESP_LOGI(TAG, "Peltier %s (temp=%.1f, mode=%s)", peltier_on ? "ON" : "OFF", temp, peltier_mode);
+    // Cập nhật trạng thái ra chân cứng liên tục để đảm bảo không bị mất lệnh
+    peltier_on = should_on;
+    gpio_set_level(PELTIER_PWR_GPIO, peltier_on ? 1 : 0);
+    
+    // Chỉ Log khi có sự thay đổi để tránh rác Terminal
+    static bool last_peltier_state = false;
+    if (peltier_on != last_peltier_state) {
+        ESP_LOGI(TAG, "Peltier State Changed: %s (temp=%.1f, mode=%s)", peltier_on ? "ON" : "OFF", temp, peltier_mode);
+        last_peltier_state = peltier_on;
     }
 }
-
 // ==================== Task điều khiển Peltier ====================
 void peltier_control_task(void *arg) {
     esp_task_wdt_add(NULL);
@@ -180,7 +184,7 @@ void peltier_control_task(void *arg) {
     }
 }
 
-// ==================== Task cảm biến chính ====================
+// ==================== Task cảm biến chính (đọc + AI + gửi MQTT) ====================
 void sensor_task(void *arg) {
     esp_task_wdt_add(NULL);
     float raw_t, raw_h;
@@ -205,8 +209,8 @@ void sensor_task(void *arg) {
         float ft = filter_apply(&temp_filter, raw_t);
         float fh = filter_apply(&humid_filter, raw_h);
 
-        // Gửi MQTT (không có gas)
-        mqtt_publish_sensor(ft, fh, 0.0f, ft, fh, 0.0f);
+        // Gửi MQTT (raw và calibrated giống nhau vì không có AI)
+        mqtt_publish_sensor(ft, fh, ft, fh);
 
         ESP_LOGI(TAG, "Temp=%.1f Hum=%.1f", ft, fh);
 
@@ -258,7 +262,7 @@ void process_command(const char *json) {
 
 // ==================== Main ====================
 void app_main(void) {
-    ESP_LOGI(TAG, "E-nose system starting (no AI, no MQ2)");
+    ESP_LOGI(TAG, "E-nose AI system starting");
 
     esp_task_wdt_config_t wdt_cfg = {
         .timeout_ms = 5000,
