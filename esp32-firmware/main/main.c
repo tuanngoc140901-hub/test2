@@ -11,13 +11,13 @@
 #include "sht3x_driver.h"
 #include "filter_lib.h"
 #include "wifi_mqtt.h"
-#include "mlp_weights.h"
 
 static const char *TAG = "main";
 
 // ==================== Bộ lọc trung vị ====================
 static median_filter_t temp_filter;
 static median_filter_t humid_filter;
+
 // ==================== ADC oneshot ====================
 static adc_oneshot_unit_handle_t adc1_handle;
 #define NTC_ADC_CHANNEL   ADC_CHANNEL_7   // GPIO35
@@ -31,7 +31,7 @@ static adc_oneshot_unit_handle_t adc1_handle;
 static bool sensor_powered = true;
 
 // ==================== Peltier (MOSFET FR120N trên D18) ====================
-#define PELTIER_PWR_GPIO   GPIO_NUM_18   // HIGH = bật Peltier (cấp nguồn cho FR120N)
+#define PELTIER_PWR_GPIO   GPIO_NUM_18   // HIGH = bật Peltier
 
 // Ngưỡng nhiệt độ (đo từ NTC)
 #define TEMP_LOW_THRESHOLD   20.0f   // < 20°C -> bật sưởi
@@ -50,29 +50,6 @@ static void adc_init(void);
 static int read_adc_raw(adc_channel_t channel);
 static float read_ntc_temp(void);
 static void process_command(const char *json);
-
-// ==================== AI – Mạng nơ-ron ====================
-static inline float relu(float x) {
-    return x > 0 ? x : 0;
-}
-
-static void mlp_predict(float input[3], float output[3]) {
-    float hidden[6];
-    for (int i = 0; i < 6; i++) {
-        float sum = b1[i];
-        for (int j = 0; j < 3; j++) {
-            sum += input[j] * W1[j][i];
-        }
-        hidden[i] = relu(sum);
-    }
-    for (int i = 0; i < 3; i++) {
-        float sum = b2[i];
-        for (int j = 0; j < 6; j++) {
-            sum += hidden[j] * W2[j][i];
-        }
-        output[i] = sum;
-    }
-}
 
 // ==================== Nguồn cảm biến ====================
 static void sensor_power_on(void) {
@@ -138,7 +115,6 @@ static int read_adc_raw(adc_channel_t channel) {
     return raw;
 }
 
-
 static float read_ntc_temp(void) {
     int raw = read_adc_raw(NTC_ADC_CHANNEL);
     float voltage = raw * 3.3f / 4095.0f;
@@ -151,7 +127,7 @@ static float read_ntc_temp(void) {
     return 1.0f / steinhart - 273.15f;
 }
 
-// ==================== Hàm điều khiển Peltier (gọi định kỳ) ====================
+// ==================== Hàm điều khiển Peltier ====================
 static void update_peltier(void) {
     float temp = read_ntc_temp();
     bool should_on = false;
@@ -162,7 +138,7 @@ static void update_peltier(void) {
         } else if (temp < TEMP_HIGH_THRESHOLD - TEMP_HYSTERESIS) {
             should_on = false;
         } else {
-            should_on = peltier_on; // giữ nguyên trong vùng trễ
+            should_on = peltier_on;
         }
     } else if (strcmp(peltier_mode, "heat") == 0) {
         if (temp < TEMP_LOW_THRESHOLD - TEMP_HYSTERESIS) {
@@ -174,9 +150,9 @@ static void update_peltier(void) {
         }
     } else if (strcmp(peltier_mode, "auto") == 0) {
         if (temp > TEMP_HIGH_THRESHOLD) {
-            should_on = true;  // ưu tiên làm mát
+            should_on = true;
         } else if (temp < TEMP_LOW_THRESHOLD) {
-            should_on = true;  // sưởi
+            should_on = true;
         } else {
             should_on = false;
         }
@@ -204,13 +180,11 @@ void peltier_control_task(void *arg) {
     }
 }
 
-// ==================== Task cảm biến chính (đọc + AI + gửi MQTT) ====================
+// ==================== Task cảm biến chính ====================
 void sensor_task(void *arg) {
     esp_task_wdt_add(NULL);
-    float raw_t, raw_h, raw_gas;
-    float input[3], output[3];
+    float raw_t, raw_h;
 
-    adc_init();
     TickType_t xLastWakeTime = xTaskGetTickCount();
     const TickType_t period = pdMS_TO_TICKS(1000);
 
@@ -228,18 +202,13 @@ void sensor_task(void *arg) {
             raw_h = 60.0f;
         }
 
-
-
         float ft = filter_apply(&temp_filter, raw_t);
         float fh = filter_apply(&humid_filter, raw_h);
 
-        input[0] = ft; input[1] = fh; input[2] = fg;
-        mlp_predict(input, output);
+        // Gửi MQTT (không có gas)
+        mqtt_publish_sensor(ft, fh, 0.0f, ft, fh, 0.0f);
 
-        mqtt_publish_sensor(ft, fh, fg, output[0], output[1], output[2]);
-
-        ESP_LOGI(TAG, "Raw: T=%.1f H=%.1f G=%.2f -> Cal: T=%.1f H=%.1f G=%.2f",
-                 ft, fh, fg, output[0], output[1], output[2]);
+        ESP_LOGI(TAG, "Temp=%.1f Hum=%.1f", ft, fh);
 
         esp_task_wdt_reset();
         vTaskDelayUntil(&xLastWakeTime, period);
@@ -289,7 +258,7 @@ void process_command(const char *json) {
 
 // ==================== Main ====================
 void app_main(void) {
-    ESP_LOGI(TAG, "E-nose AI system starting");
+    ESP_LOGI(TAG, "E-nose system starting (no AI, no MQ2)");
 
     esp_task_wdt_config_t wdt_cfg = {
         .timeout_ms = 5000,
