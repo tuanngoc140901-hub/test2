@@ -10,9 +10,9 @@
 #include "mqtt_client.h"
 #include "esp_sntp.h"   
 
-#define WIFI_SSID      "Phuong Lien/2G"
-#define WIFI_PASS      "12345689"
-#define MQTT_BROKER    "mqtt://192.168.1.2"// Điều chỉnh IP của bạn
+#define WIFI_SSID      "Liti Garden Coffee"
+#define WIFI_PASS      "camonquykhach"
+#define MQTT_BROKER    "mqtt://192.168.1.124"// Điều chỉnh IP của bạn
 #define DEVICE_ID      "dhieu"
 
 static const char *TAG = "wifi_mqtt";
@@ -120,16 +120,16 @@ void wifi_mqtt_init(void) {
 }
 
 // Hàm publish dữ liệu cảm biến (chỉ 6 tham số, bỏ fan)
-void mqtt_publish_sensor(float raw_temp, float raw_hum, float raw_gas,
-                         float cal_temp, float cal_hum, float cal_gas) {
+void mqtt_publish_sensor(float raw_temp, float raw_hum,
+                         float cal_temp, float cal_hum) {
     if (mqtt_client == NULL) return;
     char payload[256];
     snprintf(payload, sizeof(payload),
              "{\"device_id\":\"%s\",\"ts\":%lld,"
-             "\"raw_temp\":%.2f,\"raw_hum\":%.2f,\"raw_gas\":%.2f,"
-             "\"temp\":%.2f,\"hum\":%.2f,\"gas\":%.2f}",
+             "\"raw_temp\":%.2f,\"raw_hum\":%.2f"
+             "\"temp\":%.2f,\"hum\":%.2f}",
              DEVICE_ID, (long long)time(NULL),
-             raw_temp, raw_hum, raw_gas,
-             cal_temp, cal_hum, cal_gas);
+             raw_temp, raw_hum,
+             cal_temp, cal_hum);
     esp_mqtt_client_publish(mqtt_client, "e-nose/nose01/data", payload, 0, 1, 0);
 }
