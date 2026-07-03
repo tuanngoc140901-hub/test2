@@ -1,6 +1,5 @@
 #include "sht3x_driver.h"
 #include "driver/i2c.h"
-#include "esp_log.h"
 
 #define SHT3X_ADDR 0x44
 #define I2C_MASTER_NUM I2C_NUM_0
@@ -23,20 +22,18 @@ esp_err_t sht3x_init(int sda_pin, int scl_pin) {
     return ret;
 }
 
-esp_err_t sht3x_read_raw(float *temp, float *hum) {
+esp_err_t sht3x_start_measurement(void) {
     if (!initialized) return ESP_FAIL;
-
     uint8_t cmd[2] = {0x2C, 0x06}; // Single shot, high repeatability
-    esp_err_t ret = i2c_master_write_to_device(I2C_MASTER_NUM, SHT3X_ADDR, cmd, 2, pdMS_TO_TICKS(100));
-    if (ret != ESP_OK) return ret;
+    return i2c_master_write_to_device(I2C_MASTER_NUM, SHT3X_ADDR, cmd, 2, pdMS_TO_TICKS(100));
+}
 
-    vTaskDelay(pdMS_TO_TICKS(20)); // Chờ đo
-
+esp_err_t sht3x_read_result(float *temp, float *hum) {
+    if (!initialized) return ESP_FAIL;
     uint8_t data[6];
-    ret = i2c_master_read_from_device(I2C_MASTER_NUM, SHT3X_ADDR, data, 6, pdMS_TO_TICKS(100));
+    esp_err_t ret = i2c_master_read_from_device(I2C_MASTER_NUM, SHT3X_ADDR, data, 6, pdMS_TO_TICKS(100));
     if (ret != ESP_OK) return ret;
 
-    // Tính toán nhiệt độ, độ ẩm (bỏ qua CRC ở đây cho gọn, bạn có thể thêm)
     uint16_t raw_t = (data[0] << 8) | data[1];
     uint16_t raw_h = (data[3] << 8) | data[4];
     *temp = -45.0f + 175.0f * raw_t / 65535.0f;

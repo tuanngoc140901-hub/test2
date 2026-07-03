@@ -13,6 +13,9 @@ CREATE TABLE measurements (
     temperature REAL,
     humidity REAL,
     gas_values JSONB,
+    raw_temperature REAL,
+    raw_humidity REAL,
+    raw_gas REAL,
     note TEXT,
     created_at TIMESTAMPTZ DEFAULT NOW()
 );

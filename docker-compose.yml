@@ -1,11 +1,8 @@
-
 services:
   mosquitto:
     image: eclipse-mosquitto:2
     ports:
       - "1883:1883"
-    volumes:
-      - ./mosquitto/config:/mosquitto/config
     restart: unless-stopped
 
   db:
@@ -28,8 +25,12 @@ services:
       DB_PASSWORD: postgres
       DB_NAME: enose
       MQTT_BROKER: mqtt://mosquitto
+      CSV_FILE: /app/data/sensor_data.csv
+      JSON_FILE: /app/data/sensor_data.json
     ports:
       - "3000:3000"
+    volumes:
+      - ./backend/data:/app/data   # thư mục lưu file
     depends_on:
       - mosquitto
       - db
@@ -41,6 +42,8 @@ services:
       - "80:80"
     depends_on:
       - backend
+    restart: unless-stopped
 
 volumes:
   pgdata:
+  

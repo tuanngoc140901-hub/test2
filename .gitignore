@@ -6,3 +6,4 @@ backend/package-lock.json
 frontend/package-lock.json
 .env
 *.log
+build/
