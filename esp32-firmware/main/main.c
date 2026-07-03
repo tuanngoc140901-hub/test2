@@ -107,7 +107,7 @@ static void sht3x_delay_callback(TimerHandle_t xTimer) {
     }
 }
 
-// ==================== Phục hồi I2C TUYỆT ĐỐI KHÔNG DELAY ====================
+// ==================== Phục hồi I2C ====================
 static void i2c_recovery_no_delay(void) {
     gpio_config_t io_conf = {
         .pin_bit_mask = (1ULL << I2C_MASTER_SDA_IO) | (1ULL << I2C_MASTER_SCL_IO),
@@ -218,7 +218,7 @@ void peltier_control_task(void *arg) {
     }
 }
 
-// ==================== Sensor Task (100% Không Delay) ====================
+// ==================== Sensor Task ====================
 void sensor_task(void *arg) {
     esp_task_wdt_add(NULL);
     
